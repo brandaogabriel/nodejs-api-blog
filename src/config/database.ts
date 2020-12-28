@@ -1,5 +1,3 @@
-import '../../node_modules/dotenv/config.js';
-
 module.exports = {
   dialect: 'postgres',
   host: process.env.DATABASE_HOST,
