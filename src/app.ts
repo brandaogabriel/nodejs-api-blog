@@ -1,7 +1,6 @@
 import express from 'express';
 import '../node_modules/dotenv/config.js';
 
-import './database';
 import routes from './routes';
 
 const app = express();
