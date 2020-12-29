@@ -1,4 +1,4 @@
-import { Model, DataTypes } from 'sequelize';
+import Sequelize, { Model } from 'sequelize';
 import database from '../database';
 
 export default class Post extends Model {
@@ -20,25 +20,49 @@ export default class Post extends Model {
 Post.init(
   {
     id: {
-      type: new DataTypes.INTEGER(),
+      type: Sequelize.INTEGER,
       autoIncrement: true,
       primaryKey: true,
     },
     title: {
-      type: new DataTypes.STRING(80),
-      allowNull: false,
+      type: Sequelize.STRING,
+      defaultValue: '',
+      validate: {
+        len: {
+          args: [3, 30],
+          msg: 'Title must have between 3 and 30 characters',
+        },
+      },
     },
     theme: {
-      type: new DataTypes.STRING(50),
-      allowNull: false,
+      type: Sequelize.STRING,
+      defaultValue: '',
+      validate: {
+        len: {
+          args: [3, 15],
+          msg: 'Theme must have between 3 and 15 characters',
+        },
+      },
     },
     subject: {
-      type: new DataTypes.STRING(255),
-      allowNull: false,
+      type: Sequelize.STRING,
+      defaultValue: '',
+      validate: {
+        len: {
+          args: [5, 255],
+          msg: 'Subject must have between 5 and 255 characters',
+        },
+      },
     },
     tags: {
-      type: new DataTypes.STRING(30),
-      allowNull: false,
+      type: Sequelize.STRING,
+      defaultValue: '',
+      validate: {
+        len: {
+          args: [3, 25],
+          msg: 'Tags must have between 3 and 25 characters',
+        },
+      },
     },
   },
   {
