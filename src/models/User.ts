@@ -17,6 +17,10 @@ export default class User extends Model {
   public readonly createdAt!: Date;
 
   public readonly updatedAt!: Date;
+
+  public async checkPassword(password: string): Promise<boolean> {
+    return bcryptjs.compare(password, this.passwordHash);
+  }
 }
 
 User.init(
