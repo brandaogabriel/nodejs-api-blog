@@ -56,7 +56,7 @@ class PostController {
         return response.status(400).json({ error: 'Post not found' });
       }
 
-      const postUpdated = await post.update(request.body);
+      const postUpdated = await post.update({ title, subject });
 
       return response.status(200).json(postUpdated);
     } catch (e) {

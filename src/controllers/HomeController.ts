@@ -1,8 +1,27 @@
 import { Request, Response } from 'express';
 
+import Post from '../models/Post';
+
+interface FormattedPost {
+  title: string;
+  theme: string;
+  tags: string;
+}
+
 class HomeController {
   async index(request: Request, response: Response) {
-    return response.json({ msg: 'home controller' });
+    const posts = await Post.findAll();
+    const formattedPosts: FormattedPost[] = [];
+
+    posts.forEach(post => {
+      formattedPosts.push({
+        title: post.title,
+        theme: post.theme,
+        tags: post.tags,
+      });
+    });
+
+    return response.json(formattedPosts);
   }
 }
 
