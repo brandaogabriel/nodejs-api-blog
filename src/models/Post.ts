@@ -1,4 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
+
+import User from './User';
 import database from '../database';
 
 export default class Post extends Model {
@@ -69,3 +71,5 @@ Post.init(
     sequelize: database.connection,
   },
 );
+
+Post.hasOne(User);
