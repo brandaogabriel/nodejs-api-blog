@@ -4,10 +4,18 @@ import badRequest from '../helpers/httpHelper';
 import Post from '../models/Post';
 
 class PostController {
-  async index(resquest: Request, response: Response) {
+  async index(request: Request, response: Response) {
     try {
+      const { theme } = request.query;
       const posts = await Post.findAll();
-      return response.status(200).json(posts);
+
+      let result = posts;
+
+      if (theme && typeof theme === 'string') {
+        result = posts.filter(post => post.theme.includes(theme));
+      }
+
+      return response.status(200).json(result);
     } catch (e) {
       return response.status(400).json(badRequest(e));
     }
