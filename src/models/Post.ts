@@ -59,8 +59,8 @@ Post.init(
       defaultValue: '',
       validate: {
         len: {
-          args: [3, 25],
-          msg: 'Tags must have between 3 and 25 characters',
+          args: [3, 100],
+          msg: 'Tags must have between 3 and 100 characters',
         },
       },
     },

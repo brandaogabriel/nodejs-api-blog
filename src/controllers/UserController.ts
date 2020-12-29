@@ -1,5 +1,7 @@
 import { Request, Response } from 'express';
 
+import badRequest from '../helpers/httpHelper';
+
 import User from '../models/User';
 
 class UserController {
@@ -9,9 +11,7 @@ class UserController {
       const { name, email } = user;
       return response.json({ name, email });
     } catch (e) {
-      return response.status(400).json({
-        errors: e.errors.map((err: any) => err.message),
-      });
+      return response.status(400).json(badRequest(e));
     }
   }
 }
