@@ -21,7 +21,7 @@ class HomeController {
       });
     });
 
-    return response.json(formattedPosts);
+    return response.status(200).json(formattedPosts);
   }
 }
 
