@@ -14,6 +14,8 @@ export default class Post extends Model {
 
   public tags!: string;
 
+  public user_id!: number;
+
   public readonly createdAt!: Date;
 
   public readonly updatedAt!: Date;
@@ -72,4 +74,4 @@ Post.init(
   },
 );
 
-Post.hasOne(User);
+Post.belongsTo(User, { foreignKey: 'user_id' });
