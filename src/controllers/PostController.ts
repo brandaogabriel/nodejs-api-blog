@@ -72,6 +72,14 @@ class PostController {
         return response.status(400).json({ error: 'Post not found' });
       }
 
+      const userId = request.user.id;
+
+      if (!(post.user_id === userId)) {
+        return response
+          .status(401)
+          .json({ error: 'You are not the author of the post' });
+      }
+
       const postUpdated = await post.update({ title, subject });
 
       return response.status(200).json(postUpdated);
