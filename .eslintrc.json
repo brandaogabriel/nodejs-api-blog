@@ -23,6 +23,7 @@
     "class-methods-use-this": "off",
     "no-param-reassign": "off",
     "no-underscore-dangle": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "camelcase": "off",
     "import/extensions": [
       "error",
