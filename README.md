@@ -48,6 +48,16 @@ Os seguintes endpoints estão configurados:
 - `/posts/:id` - GET - Mostra um post específico a partir do ID informado
 - `/posts/:id` - DELETE - Remove um post a partir do ID informado (é necessário ser o autor do post para removê-lo).
 
+**Dados para posts (JSON)**
+```json
+  {
+	"title": "Titulo válido",
+	"theme": "Tema válido",
+	"subject": "Algum assunto válido",
+	"tags": "tags válidas"
+  }
+```
+
 
 ## Usuários (users)
 - `/users` - POST - Cria um usuário
