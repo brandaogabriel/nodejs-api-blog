@@ -43,7 +43,7 @@ Os seguintes endpoints estão configurados:
 ## Posts
 **É necessário estar logado para realizar alguma ação**
 - `/posts` - GET - Mostra todos os posts do blog
-- `/posts/:id` - PUT - Atualiza o post (titulo ou assunto) a partir do ID informado
+- `/posts/:id` - PUT - Atualiza o post (titulo ou assunto) a partir do ID informado (é necessário ser o autor do post para alterá-lo).
 - `/posts` - POST - Cria o post
 - `/posts/:id` - GET - Mostra um post específico a partir do ID informado
 - `/posts/:id` - DELETE - Remove um post a partir do ID informado (é necessário ser o autor do post para removê-lo).
