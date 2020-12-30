@@ -22,7 +22,15 @@ class PostController {
 
   async store(request: Request, response: Response) {
     try {
-      const post = await Post.create(request.body);
+      const req = {
+        title: request.body.title,
+        theme: request.body.theme,
+        subject: request.body.subject,
+        tags: request.body.tags,
+        user_id: request.user.id,
+      };
+
+      const post = await Post.create(req);
       return response.status(201).json(post);
     } catch (e) {
       return response.status(500).json({ error: 'Internal server error' });
@@ -84,6 +92,14 @@ class PostController {
 
       if (!post) {
         return response.status(400).json({ error: 'Post not found' });
+      }
+
+      const userId = request.user.id;
+
+      if (!(post.user_id === userId)) {
+        return response
+          .status(401)
+          .json({ error: 'You are not the author of the post' });
       }
 
       await post.destroy();
