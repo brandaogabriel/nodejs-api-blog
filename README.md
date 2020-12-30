@@ -18,7 +18,7 @@ yarn dev:server
 
 Neste ponto sua API deverá está rodando no endereço http://localhost:3001/.
 
-As **configurações** da base de dados **Postgres** ja estão **definidas** em `src/config/database.js`. Você precisa definir a conexão em `.env`, como já citado acima.
+As **configurações** da base de dados **Postgres** ja estão **definidas** em `src/config/database.ts`. Você precisa definir a conexão em `.env`, como já citado acima.
 
 As configurações começando com `process.env.` vem do arquivo `.env`.
 
@@ -96,8 +96,8 @@ Os seguintes endpoints estão configurados:
 
 ## 🤖 Comandos
 
-`build` - Compila e executa o projeto typescript para a pasta ./dir
+`build` - Compila e executa o projeto typescript para a pasta ./dist
 
 `dev:server` - Executa o projeto typescript em modo de desenvolvimento.
 
-`production:server` - Executa o projeto em modo de produção (./dir/server.js).
+`production:server` - Executa o projeto em modo de produção (./dist/server.js).
