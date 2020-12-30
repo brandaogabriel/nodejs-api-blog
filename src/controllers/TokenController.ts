@@ -17,13 +17,13 @@ class TokenController {
       const user = await User.findOne({ where: { email } });
       if (!user) {
         return response.status(400).json({
-          errors: ['User not found'],
+          error: 'User not found',
         });
       }
 
       if (!(await user.checkPassword(password))) {
-        return response.status(400).json({
-          errors: ['Invalid password'],
+        return response.status(401).json({
+          error: 'Invalid password',
         });
       }
 
@@ -34,7 +34,7 @@ class TokenController {
 
       return response.status(200).json({ token, email });
     } catch (e) {
-      return response.status(500).json({ errors: ['Server internal error'] });
+      return response.status(500).json({ error: 'Internal server error' });
     }
   }
 }
